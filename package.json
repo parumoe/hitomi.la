@@ -1,0 +1,33 @@
+{
+	"name": "@paruchan/hitomi.la",
+	"version": "0.1.0",
+	"description": "Hitomi.la API wrapper",
+	"module": "index.ts",
+	"type": "module",
+  "author": "parumoe <mail@paru.moe>",
+  "publishConfig": {
+    "access": "public"
+  },
+
+	"scripts": {
+		"test": "bun test",
+		"test:watch": "bun test --watch",
+		"test:coverage": "bun test --coverage",
+		"typecheck": "tsc --noEmit",
+		"lint": "bunx @biomejs/biome check .",
+		"lint:fix": "bunx @biomejs/biome check --write ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.8",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"keywords": [
+		"hitomi",
+		"api",
+		"bun"
+	],
+	"license": "MIT"
+}
