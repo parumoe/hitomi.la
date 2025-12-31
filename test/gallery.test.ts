@@ -70,7 +70,8 @@ describe("Gallery", () => {
 		expect(files).toBeArray();
 		expect(files.length).toBeGreaterThan(0);
 
-		const firstFile = files[0]!;
+		const firstFile = files[0];
+		if (!firstFile) throw new Error("No files found");
 		expect(firstFile).toHaveProperty("name");
 		expect(firstFile).toHaveProperty("hash");
 		expect(firstFile).toHaveProperty("width");

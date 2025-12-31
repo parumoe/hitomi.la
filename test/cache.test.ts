@@ -1,11 +1,11 @@
-import { describe, expect, test, beforeEach } from "bun:test";
+import { beforeEach, describe, expect, test } from "bun:test";
+import type { GalleryInfo } from "../index";
 import {
 	galleryCache,
-	getRawGallery,
 	getImageUrl,
+	getRawGallery,
 	getThumbnailUrl,
 } from "../index";
-import type { GalleryInfo } from "../index";
 
 const TEST_GALLERY_ID = 3098263;
 
@@ -71,11 +71,11 @@ describe("Cache Performance", () => {
 		const firstTime = times[0];
 		if (firstTime === undefined) return;
 		const cachedTimes = times.slice(1);
-		expect(
-			cachedTimes.every((t) => t < firstTime / 5),
-		).toBe(true);
+		expect(cachedTimes.every((t) => t < firstTime / 5)).toBe(true);
 
-		console.log(`평균 캐시된 요청: ${(cachedTimes.reduce((a, b) => a + b, 0) / cachedTimes.length).toFixed(2)}ms`);
+		console.log(
+			`평균 캐시된 요청: ${(cachedTimes.reduce((a, b) => a + b, 0) / cachedTimes.length).toFixed(2)}ms`,
+		);
 	});
 
 	test("getImageUrl - 연속 요청 시 캐시 성능", async () => {
@@ -160,7 +160,9 @@ describe("Cache Performance", () => {
 			times.push(performance.now() - start);
 		}
 
-		console.log(`첫 요청들 (네트워크): ${times.map((t) => t.toFixed(2)).join(", ")}ms`);
+		console.log(
+			`첫 요청들 (네트워크): ${times.map((t) => t.toFixed(2)).join(", ")}ms`,
+		);
 
 		// 두 번째 요청: 캐시에서 가져오기
 		const cachedTimes: number[] = [];
@@ -170,7 +172,9 @@ describe("Cache Performance", () => {
 			cachedTimes.push(performance.now() - start);
 		}
 
-		console.log(`재요청 (캐시): ${cachedTimes.map((t) => t.toFixed(2)).join(", ")}ms`);
+		console.log(
+			`재요청 (캐시): ${cachedTimes.map((t) => t.toFixed(2)).join(", ")}ms`,
+		);
 
 		// 캐시된 요청들이 더 빨아야 함
 		for (let i = 0; i < hashes.length; i++) {

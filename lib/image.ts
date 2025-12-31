@@ -1,10 +1,10 @@
+import { imageUrlCache } from "./cache";
 import {
 	getCommonImageId,
 	imageIdFromHash,
 	subdomainOffset,
 	thumbPathFromHash,
 } from "./gg";
-import { imageUrlCache } from "./cache";
 
 const CDN_DOMAIN = "gold-usergeneratedcontent.net";
 const REFERER = "https://hitomi.la/";

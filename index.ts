@@ -1,4 +1,12 @@
 // Gallery
+
+// Cache utilities
+export {
+	Cache,
+	galleryCache,
+	ggScriptCache,
+	imageUrlCache,
+} from "./lib/cache";
 export {
 	getGalleryFiles,
 	getGalleryLanguages,
@@ -7,7 +15,6 @@ export {
 	getRawGallery,
 	getRelatedGallery,
 } from "./lib/gallery";
-
 // Image
 export {
 	getImage,
@@ -17,14 +24,6 @@ export {
 	getThumbnail,
 	getThumbnailUrl,
 } from "./lib/image";
-
-// Cache utilities
-export {
-	Cache,
-	galleryCache,
-	ggScriptCache,
-	imageUrlCache,
-} from "./lib/cache";
 
 // Types
 export type {

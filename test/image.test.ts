@@ -18,7 +18,8 @@ describe("Image URL", () => {
 		expect(files).not.toBeInstanceOf(Error);
 		if (files instanceof Error) return;
 
-		const file = files[0]!;
+		const file = files[0];
+		if (!file) throw new Error("No files found");
 		const url = await getImageUrl(file.hash, false);
 
 		expect(url).toMatch(/^https:\/\//);
@@ -31,7 +32,8 @@ describe("Image URL", () => {
 		expect(files).not.toBeInstanceOf(Error);
 		if (files instanceof Error) return;
 
-		const file = files[0]!;
+		const file = files[0];
+		if (!file) throw new Error("No files found");
 		const url = await getThumbnailUrl(file.hash, false);
 
 		expect(url).toMatch(/^https:\/\//);
@@ -44,7 +46,8 @@ describe("Image URL", () => {
 		expect(files).not.toBeInstanceOf(Error);
 		if (files instanceof Error) return;
 
-		const file = files[0]!;
+		const file = files[0];
+		if (!file) throw new Error("No files found");
 
 		// HEAD 요청으로 URL 유효성 확인
 		const res = await fetch(file.url, {
@@ -62,7 +65,8 @@ describe("Image Download", () => {
 		expect(files).not.toBeInstanceOf(Error);
 		if (files instanceof Error) return;
 
-		const file = files[0]!;
+		const file = files[0];
+		if (!file) throw new Error("No files found");
 		const res = await getImage(file.hash, false);
 
 		expect(res).not.toBeInstanceOf(Error);
@@ -77,7 +81,8 @@ describe("Image Download", () => {
 		expect(files).not.toBeInstanceOf(Error);
 		if (files instanceof Error) return;
 
-		const file = files[0]!;
+		const file = files[0];
+		if (!file) throw new Error("No files found");
 		const buffer = await getImageBuffer(file.hash, false);
 
 		expect(buffer).not.toBeInstanceOf(Error);
@@ -92,7 +97,8 @@ describe("Image Download", () => {
 		expect(files).not.toBeInstanceOf(Error);
 		if (files instanceof Error) return;
 
-		const file = files[0]!;
+		const file = files[0];
+		if (!file) throw new Error("No files found");
 		const blob = await getImageBlob(file.hash, false);
 
 		expect(blob).not.toBeInstanceOf(Error);
@@ -107,7 +113,8 @@ describe("Image Download", () => {
 		expect(files).not.toBeInstanceOf(Error);
 		if (files instanceof Error) return;
 
-		const file = files[0]!;
+		const file = files[0];
+		if (!file) throw new Error("No files found");
 		const res = await getThumbnail(file.hash, false);
 
 		expect(res).not.toBeInstanceOf(Error);
